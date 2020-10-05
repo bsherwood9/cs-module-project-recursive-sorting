@@ -11,18 +11,40 @@ def merge(arrA, arrB):
 
     print(merged_arr)
     return merged_arr
+    # results = []
+    # i = 0
+    # j = 0
+    # while i < len(arrA) and j < len(arrB):
+    #     if arrA[i] < arrB[j]:
+    #         results.append(arrA[i])
+    #         i += 1
+    #     else:
+    #         results.append(arrB[j])
+    #         j += 1
+    # while i < len(arrA):
+    #     results.append(arrA[i])
+    #     i += 1
+    # while j < len(arrB):
+    #     results.append(arrB[j])
+    #     j += 1
+    # return results
+
 
 # TO-DO: implement the Merge Sort function below recursively
 
 
 def merge_sort(arr):
-    # Your code here
-    # need to split in half in half in half until
-    head = 0
-    tail = len(arr)-1
-    mid = (head+tail)//2
+    #     # Your code here
+    #     # need to split in half in half in half until
+    if len(arr) <= 1:
+        return arr
+    mid = round(len(arr)//2)
+    left = merge_sort(arr[0:mid])
+    right = merge_sort(arr[mid:])
 
-    return arr
+    return merge(left, right)
+
+#     return arr
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't
 # utilize any extra memory
 # In other words, your implementation should not allocate any additional lists
@@ -36,5 +58,5 @@ def merge_sort(arr):
 # def merge_sort_in_place(arr, l, r):
 #     # Your code here
 
-merge([3, 10, 4], [9, 2, 19])
-merge_sort([1, 45, 3, 2, 56, 23])
+merge([3, 4, 5, 10], [2, 9, 19])
+# merge_sort([1, 45, 3, 2, 56, 23])
